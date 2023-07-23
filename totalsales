@@ -1,0 +1,39 @@
+Print an integer representing the total sales value of the two highest selling 
+products on the Website.
+Constraints
+2 ≤ numProducts ≤ 106
+Note
+More than one product can have a similar sales value.
+Example
+Input
+5
+15 26 13 7 45
+Output
+71
+#include<Stdio.h>
+void main()
+{
+    int n;
+    scanf("%d",&n);
+    int arr[n];
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&arr[i]);
+    }
+    int max2;
+    int max1=max2=arr[0];
+    for(int i=0;i<n;i++)
+    {
+        if(arr[i] > max1)
+        {
+            max2=max1;
+            max1=arr[i];
+        }
+        else if(arr[i] > max2 && arr[i] != max1)
+        {
+            max2=arr[i];
+        }
+    }
+    printf("%d",max1+max2);
+}
+
